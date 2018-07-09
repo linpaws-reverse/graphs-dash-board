@@ -39,7 +39,8 @@ html, body {
 
 #bullet_chart_container{
     position: absolute;
-    top: 30%;
+    top: 20%;
+    margin-left: 10px;
 }
 
 .bullet {

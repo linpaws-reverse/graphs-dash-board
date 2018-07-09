@@ -29,7 +29,7 @@ export default class BulletChart extends React.Component{
     initScale(props=this.props){
         let x = props.container
         this.svgContainer = d3.select(this.refs[x])
-        this.width = 200//460 - this.props.margin.left - this.props.margin.right
+        this.width = 150//460 - this.props.margin.left - this.props.margin.right
         this.height = 50 - this.props.margin.top - this.props.margin.bottom;
         this.chart = bullet()
             .width(this.width)
@@ -46,7 +46,7 @@ export default class BulletChart extends React.Component{
             .attr("width", bullet_chart_width)
             .attr("height", this.height + this.props.margin.top + this.props.margin.bottom)
             .append("g")
-            .attr("transform", "translate(" + 0 + "," + this.props.margin.top + ")")
+            .attr("transform", "translate(" + 7 + "," + this.props.margin.top + ")")
             .call(this.chart);
 
         var title = this.svgContainer
