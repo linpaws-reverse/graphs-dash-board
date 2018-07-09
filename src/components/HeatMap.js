@@ -5,8 +5,11 @@ import greenIcon from '../images/green.png'
 import yellowIcon from '../images/yellow.png'
 import redIcon from '../images/red.png'
 
-const IMAGE_WIDTH = 15
-const IMAGE_HEIGHT = 15
+const IMAGE_WIDTH = 10//15
+const IMAGE_HEIGHT = 10//15
+
+//adjust y for severity , down-time and date
+const LABELE_MARGIN_TOP=35
 
 const SPACE_IN_COMPONENTS = 10
 const LEFT_MARGIN = 100
@@ -32,7 +35,7 @@ export default class HeatMap extends Component {
         container: 'svgContainer',
         width: "100%",
         height: '100%',
-        SQUARE_LENGTH: 20,
+        SQUARE_LENGTH: 15,//20,
         svgTopPadding: 5,
         noOfHours: 24,
         noOfDays: 31,
@@ -68,12 +71,7 @@ export default class HeatMap extends Component {
         /*Logic :
             square_lenght : parent_div_width / props.noOfHours
         * */
-
-
-
-        //this.width = props.width ? props.width : props.noOfHours * (props.SQUARE_LENGTH) + 250
-        //this.height = props.height ? props.height : props.noOfDays * (props.SQUARE_LENGTH) + props.svgTopPadding
-        this.width = '100%'//props.noOfHours * (props.SQUARE_LENGTH) + 250
+        this.width = /*'100%'*/props.noOfHours * (props.SQUARE_LENGTH) + 250
         this.height =  props.noOfDays * (props.SQUARE_LENGTH) + props.svgTopPadding
     }
 
@@ -82,8 +80,8 @@ export default class HeatMap extends Component {
         let y_tranform = (Object.keys(data)).length * props.SQUARE_LENGTH + 50
         var legend = this.svg.append("g")
             .attr('id', 'heatmapLegends')
-            .attr("height", 20)
-            .attr("width", 20)
+            .attr("height", props.SQUARE_LENGTH)
+            .attr("width", props.SQUARE_LENGTH)
             .attr('transform', 'translate(20,' + y_tranform + ')')
 
         let legendRect = legend.selectAll("rect")
@@ -94,8 +92,8 @@ export default class HeatMap extends Component {
         legendRect.attr('id', function (d) {
             return d.title
         })
-            .attr('width', 20)
-            .attr('height', 20)
+            .attr('width', props.SQUARE_LENGTH)
+            .attr('height', props.SQUARE_LENGTH)
             .style('stroke', '#D6D6D6')
             .style('stroke-width', '1px')
             .style('shape-rendering', 'crispEdges')
@@ -177,7 +175,7 @@ export default class HeatMap extends Component {
                 //return (props.SQUARE_LENGTH * 24) + 50 + SPACE_IN_COMPONENTS
             })
             .attr('y', function (d, i) {
-                return props.SQUARE_LENGTH * i + 30;
+                return props.SQUARE_LENGTH * i + (LABELE_MARGIN_TOP-12)//30;
             })
             .attr('fill', '#999')
 
@@ -227,7 +225,7 @@ export default class HeatMap extends Component {
                 return -20 + LEFT_MARGIN
             })
             .attr('y', function (d, i) {
-                return props.SQUARE_LENGTH * i + 42;
+                return props.SQUARE_LENGTH * i + LABELE_MARGIN_TOP;
             })
             .attr('fill', '#999')
 
@@ -272,7 +270,7 @@ export default class HeatMap extends Component {
                 return (props.SQUARE_LENGTH * 24) + 50 + SPACE_IN_COMPONENTS + LEFT_MARGIN
             })
             .attr('y', function (d, i) {
-                return props.SQUARE_LENGTH * i + 42;
+                return props.SQUARE_LENGTH * i + LABELE_MARGIN_TOP;
             })
             .attr('fill', '#999')
 
@@ -405,7 +403,7 @@ export default class HeatMap extends Component {
 
     render() {
         return (
-                <div className={'inheritH'}
+                <div className={'inheritH heatChart_child'}
                     ref={this.props.container}
                     id={this.props.container}>
                 </div>
