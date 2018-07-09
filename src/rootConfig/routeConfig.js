@@ -6,6 +6,8 @@ import App from '../App'
 import HeatMapContainer from "../container/HeatMapContainer";
 import DashBoardContainer from "../container/DashBoardContainer";
 import LineGraph from "../components/line-graph";
+import BarChart from "../components/BarChart";
+import LineChartComponent from "../components/lineChart";
 
 const routeConfig = (store) => (
     <Provider store = {store}>
@@ -16,6 +18,8 @@ const routeConfig = (store) => (
                 <Route path = "/heatmap" component={HeatMapContainer}/>
                 <Route path = "/dashboard" component={DashBoardContainer}/>
                 <Route path = "/lineGraph" component={LineGraph}/>
+                <Route path = "/barGraph" component={BarChart}/>
+                <Route path = "/lineChartComponent" component={LineChartComponent}/>
             </div>
         </BrowserRouter>
     </Provider>

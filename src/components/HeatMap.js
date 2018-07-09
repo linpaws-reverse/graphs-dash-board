@@ -33,12 +33,12 @@ export default class HeatMap extends Component {
         width: "100%",
         height: '100%',
         SQUARE_LENGTH: 20,
-        svgTopPadding: 40,
+        svgTopPadding: 5,
         noOfHours: 24,
         noOfDays: 31,
         labelFontSize: 10,
         data: data,
-        margin: {top: 50, right: 0, bottom: 100, left: 30},
+        margin: {top: 20, right: 0, bottom: 100, left: 30},
     }
 
     constructor(props) {
@@ -74,7 +74,7 @@ export default class HeatMap extends Component {
         //this.width = props.width ? props.width : props.noOfHours * (props.SQUARE_LENGTH) + 250
         //this.height = props.height ? props.height : props.noOfDays * (props.SQUARE_LENGTH) + props.svgTopPadding
         this.width = '100%'//props.noOfHours * (props.SQUARE_LENGTH) + 250
-        this.height = /*'100%'*/ props.noOfDays * (props.SQUARE_LENGTH) + props.svgTopPadding
+        this.height =  props.noOfDays * (props.SQUARE_LENGTH) + props.svgTopPadding
     }
 
     showLegends(props = this.props) {

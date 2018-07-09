@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import DropDown from "../components/drop-down";
 import RiskComponent from "../components/risk-component";
 import HeatMapContainer from "../container/HeatMapContainer";
+import LineChartComponent from "../components/lineChart";
 
 const HEAT_MAP_HEIGHT = 375
 const TIMERANGES = ['Monthly', 'Weekly', 'Daily']
@@ -70,6 +71,7 @@ class DashBoardContainer extends Component {
             <div id={'LineChartContainerData'}
                  className={'contentBgColor margin10'}
                  style={{width: '60%'}}>
+                <LineChartComponent/>
             </div>
         )
     }
@@ -135,7 +137,7 @@ class DashBoardContainer extends Component {
                 <div className="sidebarContainer">
                     {this.getSideBarContents()}
                 </div>
-                <div id='mainPageContainer' className="mainPageContainer">
+                <div id='mainPageContainer' className="mainPageContainer scrollY">
                     {this.getContainerContents()}
                 </div>
             </div>

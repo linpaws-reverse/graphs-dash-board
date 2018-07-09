@@ -6,7 +6,7 @@ export default class BulletChart extends React.Component{
 
     static defaultProps = {
         container : 'bulletChartContainer',
-        margin : {top: 5, right: 40, bottom: 20, left: 75},
+        margin : {top: 15, right: 40, bottom: 20, left: 75},
         data : [
             {
                 "title":"",
@@ -30,7 +30,7 @@ export default class BulletChart extends React.Component{
         let x = props.container
         this.svgContainer = d3.select(this.refs[x])
         this.width = 150//460 - this.props.margin.left - this.props.margin.right
-        this.height = 50 - this.props.margin.top - this.props.margin.bottom;
+        this.height = 60 - this.props.margin.top - this.props.margin.bottom;
         this.chart = bullet()
             .width(this.width)
             .height(this.height);
@@ -53,7 +53,7 @@ export default class BulletChart extends React.Component{
             .selectAll("svg")
             .append("g")
             .style("text-anchor", "end")
-            .attr("transform", "translate(-6," + 0 + ")");
+            .attr("transform", "translate(70," + 10 + ")");
             //.attr("transform", "translate(-6," + this.height / 2 + ")");
 
         title.append("text")

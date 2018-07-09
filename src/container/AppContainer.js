@@ -10,6 +10,8 @@ class AppContainer extends Component {
                 <p><Link to="/heatmap">Go To Heat</Link></p>
                 <p><Link to="/dashboard">DashBoard</Link></p>
                 <p><Link to="/lineGraph">LineGraph</Link></p>
+                <p><Link to="/barGraph">BarChart</Link></p>
+                <p><Link to="/lineChartComponent">LineChartComponent</Link></p>
             </div>
         );
     }
