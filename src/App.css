@@ -1,0 +1,253 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 45px;
+    padding: 20px;
+    color: white;
+}
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+.f-bold {
+    font-weight: bold;
+}
+
+.legend rect {
+    fill: white;
+    stroke: black;
+    opacity: 0.8;
+}
+
+.bullet {
+    font: 10px sans-serif;
+}
+
+.bullet .marker {
+    stroke: #000;
+    stroke-width: 2px;
+}
+
+.bullet .tick line {
+    stroke: #666;
+    stroke-width: .5px;
+}
+
+.bullet .range.s0 {
+    fill: #eee;
+}
+
+.bullet .range.s1 {
+    fill: #ddd;
+}
+
+.bullet .range.s2 {
+    fill: #ccc;
+}
+
+.bullet .measure.s0 {
+    fill: lightsteelblue;
+}
+
+.bullet .measure.s1 {
+    fill: steelblue;
+}
+
+.bullet .title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bullet .subtitle {
+    fill: #999;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* App Layout */
+#dash-board-Container{
+    display: flex;
+    width: 100%;
+    background-color: black;
+}
+
+.topBar {
+    width: 100%;
+    max-height: 10%;
+    background-color: #464646;
+}
+
+#dash-board-Content {
+    display: flex;
+    width: 100%;
+    max-height: 92%;
+    background-color: black;
+}
+
+.wrapper {
+    border: 2px solid #000;
+    overflow: hidden;
+}
+
+.sidebarContainer {
+    background: #323232;
+    width: 25%;
+    margin: 5px;
+}
+
+.mainPageContainer {
+    background: #323232;
+    width: 75%;
+    margin: 5px;
+}
+
+.leftNavigationContainer{
+    background: black;
+    width: 5%;
+    height: 100%;
+}
+.drop-down-btn{
+    background: black;
+    color: white;
+}
+.bgBlack{
+    background: black;
+}
+.fontWhite{
+    color: white !important;
+    font-weight: 600;
+}
+
+/* App Layout */
+
+/*Common classes*/
+.contentBgColor{
+    background-color: #464646;
+}
+
+.margin10{
+    margin: 10px;
+}
+
+.margin5{
+    margin: 5px;
+}
+
+.margin2{
+    margin: 2px;
+}
+
+.margin3{
+    margin: 3px;
+}
+
+.marginLeft5{
+    margin-left: 5px !important;
+}
+
+.inheritH {
+    height: 100%;
+}
+
+.flex_center{
+    display: flex;
+    justify-content: center;
+}
+
+.flex_space_between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerBgColor{
+    background-color: #323232;
+}
+
+.severityIcon{
+    width: 15px;
+    height: 15px;
+}
+
+.iconCount{
+    width: 25%;
+    height: 30px;
+    align-items: center;
+    margin: 1px;
+}
+
+.risk-container{
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px gray solid;
+}
+
+.riskDetails{
+    border: 1px solid;
+}
+
+/*Common classes*/
+
+/*collapse arrow*/
+
+#expandArrowWrap[aria-expanded=false] .glyphicon-chevron-up {
+    display: none;
+}
+#expandArrowWrap[aria-expanded=true] .glyphicon-chevron-down {
+    display: none;
+}
+/*collapse arrow*/
+
+/*Line graph*/
+path {
+    stroke: steelblue;
+    stroke-width: 1;
+    fill: none;
+}
+
+.axis {
+    shape-rendering: crispEdges;
+}
+
+.x.axis line {
+    stroke: lightgrey;
+}
+
+.x.axis .minor {
+    stroke-opacity: .5;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.y.axis line, .y.axis path {
+    fill: none;
+    stroke: #000;
+}
+
+/*Line graph*/
