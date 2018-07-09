@@ -35,18 +35,20 @@ class HeatMapContainer extends Component {
 
     render() {
         return (
-                <div id={'heat-map-container'} className={'inheritH'} style={{display:'flex'}}>
+            <div>
+                <div id={'bulletChart'}
+                     style={{width:'100%',display:'flex',justifyContent:'flex-end'}}>
+                    <BulletChart data={this.state.rowData}/>
+                </div>
+                <div id={'heat-map-container'} className={'inheritH'} style={{height:'375px',display:'flex',overflow:'scroll'}}>
                     <div id={'heatChart'} style={{width:'65%'}}>
                         <HeatMap rowSelection={this.rowSelection}
                                  data={this.props.data ? this.props.data.toJS() : {}}/>
 
                         <Tooltip id="heatmap-cell" event="mouseover" eventOff="mouseout" class="extra" html={true}/>
                     </div>
-                    <div id={'bulletChart'}
-                         style={{width:'35%'}}>
-                        <BulletChart data={this.state.rowData}/>
-                    </div>
                 </div>
+            </div>
             )
     }
 }

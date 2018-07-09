@@ -30,7 +30,7 @@ export default class BulletChart extends React.Component{
         let x = props.container
         this.svgContainer = d3.select(this.refs[x])
         this.width = 150//460 - this.props.margin.left - this.props.margin.right
-        this.height = 60 - this.props.margin.top - this.props.margin.bottom;
+        this.height = 50 - this.props.margin.top - this.props.margin.bottom;
         this.chart = bullet()
             .width(this.width)
             .height(this.height);

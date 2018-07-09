@@ -51,7 +51,7 @@ class DashBoardContainer extends Component {
         return (
             <div id={'heatMapContainerData'}
                  className={'contentBgColor margin10'}
-                 style={{width: '60%',height:HEAT_MAP_HEIGHT,overflow:'auto'}}>
+                 style={{width: '60%',height:HEAT_MAP_HEIGHT,overflow:'hidden'}}>
                 <HeatMapContainer/>
             </div>
         )
