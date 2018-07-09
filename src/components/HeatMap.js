@@ -9,7 +9,7 @@ const IMAGE_WIDTH = 10//15
 const IMAGE_HEIGHT = 10//15
 
 //adjust y for severity , down-time and date
-const LABELE_MARGIN_TOP=35
+const LABELE_MARGIN_TOP = 35
 
 const SPACE_IN_COMPONENTS = 10
 const LEFT_MARGIN = 60
@@ -72,7 +72,7 @@ export default class HeatMap extends Component {
             square_lenght : parent_div_width / props.noOfHours
         * */
         this.width = /*'100%'*/props.noOfHours * (props.SQUARE_LENGTH) + 160
-        this.height =  props.noOfDays * (props.SQUARE_LENGTH)// + props.svgTopPadding
+        this.height = props.noOfDays * (props.SQUARE_LENGTH)// + props.svgTopPadding
     }
 
     showLegends(props = this.props) {
@@ -99,7 +99,7 @@ export default class HeatMap extends Component {
             .style('shape-rendering', 'crispEdges')
             .attr('x', function (d, i) {
                 //return 0
-                return i*150 + props.SQUARE_LENGTH
+                return i * 150 + props.SQUARE_LENGTH
             })
             .attr('y', function (d, i) {
                 //return (props.SQUARE_LENGTH) * i + 5
@@ -116,7 +116,7 @@ export default class HeatMap extends Component {
             .append("text")
             .attr('x', function (d, i) {
                 //return 30
-                return i*150 + props.SQUARE_LENGTH + 20
+                return i * 150 + props.SQUARE_LENGTH + 20
             })
             .attr('y', function (d, i) {
                 //return (props.SQUARE_LENGTH) * i + 20
@@ -179,7 +179,7 @@ export default class HeatMap extends Component {
                 //return (props.SQUARE_LENGTH * 24) + 50 + SPACE_IN_COMPONENTS
             })
             .attr('y', function (d, i) {
-                return props.SQUARE_LENGTH * i + (LABELE_MARGIN_TOP-12)//30;
+                return props.SQUARE_LENGTH * i + (LABELE_MARGIN_TOP - 12)//30;
             })
             .attr('fill', '#999')
 
@@ -376,7 +376,7 @@ export default class HeatMap extends Component {
             .style('cursor', 'hand')
             .attr('data-for', 'heatmap-cell')
             .attr('data-tip', function (d, i) {
-                let status = parseInt(d.status) ? 'Pass' : 'Failure'
+                let status = parseInt(d.status) ? 'Failure' : 'Pass'
                 let tooltip = 'Status: ' + status + '<br/> Success Rate: ' + '60%'
                 return tooltip
             })
@@ -407,10 +407,10 @@ export default class HeatMap extends Component {
 
     render() {
         return (
-                <div className={'inheritH heatChart_child'}
-                    ref={this.props.container}
-                    id={this.props.container}>
-                </div>
+            <div className={'inheritH heatChart_child'}
+                 ref={this.props.container}
+                 id={this.props.container}>
+            </div>
         )
     }
 }
