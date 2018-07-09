@@ -34,23 +34,19 @@ class HeatMapContainer extends Component {
     }
 
     render() {
-        let rect_h_w = 20 //react width and height
         return (
-            <div id={'heat-map-container'}>
-                {/*<p><Link to="/home">Home</Link></p>*/}
-                <div style={{display:'flex'}}>
-                    <div id={'heatChart'}>
+                <div id={'heat-map-container'} className={'inheritH'} style={{display:'flex'}}>
+                    <div id={'heatChart'} style={{width:'65%'}}>
                         <HeatMap rowSelection={this.rowSelection}
-                                 SQUARE_LENGTH={rect_h_w}
                                  data={this.props.data ? this.props.data.toJS() : {}}/>
 
                         <Tooltip id="heatmap-cell" event="mouseover" eventOff="mouseout" class="extra" html={true}/>
                     </div>
-                    <div id={'bulletChart'} style={{width:'25%',marginTop:'5%'}}>
+                    <div id={'bulletChart'}
+                         style={{width:'35%'}}>
                         <BulletChart data={this.state.rowData}/>
                     </div>
                 </div>
-            </div>
             )
     }
 }

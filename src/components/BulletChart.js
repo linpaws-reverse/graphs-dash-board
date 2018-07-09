@@ -29,7 +29,7 @@ export default class BulletChart extends React.Component{
     initScale(props=this.props){
         let x = props.container
         this.svgContainer = d3.select(this.refs[x])
-        this.width = 460 - this.props.margin.left - this.props.margin.right
+        this.width = 200//460 - this.props.margin.left - this.props.margin.right
         this.height = 50 - this.props.margin.top - this.props.margin.bottom;
         this.chart = bullet()
             .width(this.width)
@@ -37,20 +37,24 @@ export default class BulletChart extends React.Component{
     }
 
     drawChart(props=this.props){
+        let bullet_chart_width = '200px'//this.width + this.props.margin.left + this.props.margin.right
         this.svg = this.svgContainer
             .selectAll("svg")
             .data(props.data)
             .enter().append("svg")
             .attr("class", "bullet")
-            .attr("width", this.width + this.props.margin.left + this.props.margin.right)
+            .attr("width", bullet_chart_width)
             .attr("height", this.height + this.props.margin.top + this.props.margin.bottom)
             .append("g")
-            .attr("transform", "translate(" + this.props.margin.left + "," + this.props.margin.top + ")")
+            .attr("transform", "translate(" + 0 + "," + this.props.margin.top + ")")
             .call(this.chart);
 
-        var title = this.svg.append("g")
+        var title = this.svgContainer
+            .selectAll("svg")
+            .append("g")
             .style("text-anchor", "end")
-            .attr("transform", "translate(-6," + this.height / 2 + ")");
+            .attr("transform", "translate(-6," + 0 + ")");
+            //.attr("transform", "translate(-6," + this.height / 2 + ")");
 
         title.append("text")
             .attr("class", "title")
@@ -59,7 +63,8 @@ export default class BulletChart extends React.Component{
     }
 
     render(){
-        return(<div ref={this.props.container}>
+        return(<div id={'bullet_chart_container'}
+                    ref={this.props.container}>
         </div>);
     }
 }

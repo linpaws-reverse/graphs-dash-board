@@ -5,6 +5,7 @@ import DropDown from "../components/drop-down";
 import RiskComponent from "../components/risk-component";
 import HeatMapContainer from "../container/HeatMapContainer";
 
+const HEAT_MAP_HEIGHT = 375
 const TIMERANGES = ['Monthly', 'Weekly', 'Daily']
 const YEARS = [2018, 2017, 2016, 2015, 2014, 2013, 2012]
 const MONTHS = ['Janaury', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -49,7 +50,7 @@ class DashBoardContainer extends Component {
         return (
             <div id={'heatMapContainerData'}
                  className={'contentBgColor margin10'}
-                 style={{width: '60%'}}>
+                 style={{width: '60%',height:HEAT_MAP_HEIGHT,overflow:'auto'}}>
                 <HeatMapContainer/>
             </div>
         )

@@ -37,6 +37,12 @@ html, body {
     opacity: 0.8;
 }
 
+#bullet_chart_container{
+    position: absolute;
+    right: 1%;
+    top: 30%;
+}
+
 .bullet {
     font: 10px sans-serif;
 }

@@ -32,7 +32,7 @@ export default class HeatMap extends Component {
         container: 'svgContainer',
         width: "100%",
         height: '100%',
-        SQUARE_LENGTH: 22,
+        SQUARE_LENGTH: 20,
         svgTopPadding: 40,
         noOfHours: 24,
         noOfDays: 31,
@@ -61,8 +61,20 @@ export default class HeatMap extends Component {
         this.svgContainer = d3.select(this.refs[x])
         this.svgContainer.selectAll('svg.calendar-heatmap').remove()
 
-        this.width = props.width ? props.width : props.noOfHours * (props.SQUARE_LENGTH) + 250
-        this.height = props.height ? props.height : props.noOfDays * (props.SQUARE_LENGTH) + props.svgTopPadding
+        //calculate square height and width of heat-map-react
+        let parentWidth = document.getElementById("heat-map-container").parentElement.clientWidth;
+        let parentHeight = document.getElementById("heat-map-container").parentElement.clientHeight;
+
+        /*Logic :
+            square_lenght : parent_div_width / props.noOfHours
+        * */
+
+
+
+        //this.width = props.width ? props.width : props.noOfHours * (props.SQUARE_LENGTH) + 250
+        //this.height = props.height ? props.height : props.noOfDays * (props.SQUARE_LENGTH) + props.svgTopPadding
+        this.width = '100%'//props.noOfHours * (props.SQUARE_LENGTH) + 250
+        this.height = /*'100%'*/ props.noOfDays * (props.SQUARE_LENGTH) + props.svgTopPadding
     }
 
     showLegends(props = this.props) {
@@ -393,13 +405,10 @@ export default class HeatMap extends Component {
 
     render() {
         return (
-            <div id={'heatMapContainer'}>
-                <div
+                <div className={'inheritH'}
                     ref={this.props.container}
-                    id={this.props.container}
-                    style={{marginLeft: '50px'}}>
+                    id={this.props.container}>
                 </div>
-            </div>
         )
     }
 }

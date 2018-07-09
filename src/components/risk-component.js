@@ -76,7 +76,7 @@ class RiskComponent extends Component {
                     <img className={'severityIcon'} src={greenIcon}/>
                     <div className={'margin5'}>{0}</div>
                 </div>
-                <div id='expandArrowWrap' className={'flex_center contentBgColor iconCount'}
+                <div id='expandArrowWrap' aria-expanded="false" className={'flex_center contentBgColor iconCount'}
                      data-toggle="collapse"
                      data-target={"#" + item.get('id')}>
                     <span className="glyphicon glyphicon-chevron-up"/>
