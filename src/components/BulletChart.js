@@ -37,7 +37,7 @@ export default class BulletChart extends React.Component{
     }
 
     drawChart(props=this.props){
-        let bullet_chart_width = '200px'//this.width + this.props.margin.left + this.props.margin.right
+        let bullet_chart_width = '170px'//this.width + this.props.margin.left + this.props.margin.right
         this.svg = this.svgContainer
             .selectAll("svg")
             .data(props.data)
