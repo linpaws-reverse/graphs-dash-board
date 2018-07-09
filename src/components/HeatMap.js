@@ -12,7 +12,7 @@ const IMAGE_HEIGHT = 10//15
 const LABELE_MARGIN_TOP=35
 
 const SPACE_IN_COMPONENTS = 10
-const LEFT_MARGIN = 100
+const LEFT_MARGIN = 60
 const HEATMAP_LEGENDS = [
     {
         title: 'Failure',
@@ -41,7 +41,7 @@ export default class HeatMap extends Component {
         noOfDays: 31,
         labelFontSize: 10,
         data: data,
-        margin: {top: 20, right: 0, bottom: 100, left: 30},
+        margin: {top: 20, right: 0, bottom: 100, left: 20},
     }
 
     constructor(props) {
@@ -71,8 +71,8 @@ export default class HeatMap extends Component {
         /*Logic :
             square_lenght : parent_div_width / props.noOfHours
         * */
-        this.width = /*'100%'*/props.noOfHours * (props.SQUARE_LENGTH) + 250
-        this.height =  props.noOfDays * (props.SQUARE_LENGTH) + props.svgTopPadding
+        this.width = /*'100%'*/props.noOfHours * (props.SQUARE_LENGTH) + 160
+        this.height =  props.noOfDays * (props.SQUARE_LENGTH)// + props.svgTopPadding
     }
 
     showLegends(props = this.props) {
@@ -98,10 +98,12 @@ export default class HeatMap extends Component {
             .style('stroke-width', '1px')
             .style('shape-rendering', 'crispEdges')
             .attr('x', function (d, i) {
-                return 0
+                //return 0
+                return i*150 + props.SQUARE_LENGTH
             })
             .attr('y', function (d, i) {
-                return (props.SQUARE_LENGTH) * i + 5
+                //return (props.SQUARE_LENGTH) * i + 5
+                return 0
             })
             .attr('fill', function (d, i) {
                 return d.color
@@ -113,10 +115,12 @@ export default class HeatMap extends Component {
             .enter()
             .append("text")
             .attr('x', function (d, i) {
-                return 30
+                //return 30
+                return i*150 + props.SQUARE_LENGTH + 20
             })
             .attr('y', function (d, i) {
-                return (props.SQUARE_LENGTH) * i + 20
+                //return (props.SQUARE_LENGTH) * i + 20
+                return (props.SQUARE_LENGTH)
             })
             .text(function (d) {
                 return d.title;
