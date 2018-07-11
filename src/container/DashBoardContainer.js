@@ -15,13 +15,29 @@ const MONTHS = ['Janaury', 'February', 'March', 'April', 'May', 'June', 'July', 
 class DashBoardContainer extends Component {
     constructor(props) {
         super(props)
+        this.onChange = this.onChange.bind(this)
+        this.state={
+            title:'Asset Performance',
+            calendarData:{
+                Year:'',
+                Month:'',
+                TimeRange:''
+            }
+        }
     }
-
+    onChange(selectedMenu){
+        console.log(selectedMenu)
+        let calendarData = {}
+        calendarData.year = selectedMenu.Year
+        calendarData.Month = selectedMenu.Month
+        calendarData.TimeRange = selectedMenu.TimeRange
+        //this.setState({calendarData:calendarData})
+    }
     getTopBar() {
         let dropDownArr = []
-        dropDownArr.push(<DropDown dataOptions={TIMERANGES} displayName="TimeRange"/>)
-        dropDownArr.push(<DropDown dataOptions={YEARS} displayName="Year"/>)
-        dropDownArr.push(<DropDown dataOptions={MONTHS} displayName="Month"/>)
+        dropDownArr.push(<DropDown onChange={this.onChange} dataOptions={TIMERANGES} displayName="TimeRange"/>)
+        dropDownArr.push(<DropDown onChange={this.onChange} dataOptions={YEARS} displayName="Year"/>)
+        dropDownArr.push(<DropDown onChange={this.onChange} dataOptions={MONTHS} displayName="Month"/>)
         return (
             <div className="topBar" style={{display: 'flex'}}>
                 {dropDownArr}
@@ -52,7 +68,7 @@ class DashBoardContainer extends Component {
             <div id={'heatMapContainerData'}
                  className={'contentBgColor margin10'}
                  style={{width: '60%',height:HEAT_MAP_HEIGHT,overflow:'hidden'}}>
-                <HeatMapContainer/>
+                <HeatMapContainer calendarData={this.state.calendarData}/>
             </div>
         )
     }
